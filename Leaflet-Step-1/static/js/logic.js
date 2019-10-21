@@ -1,4 +1,4 @@
-var API_KEY = "pk.eyJ1IjoibWFyYXphcCIsImEiOiJjazA5dG5qcm4wYmdxM25td3Vjb3hqZHV3In0.H4yMhzk2CLWelwV4OVx1jg";
+
 
 // function to make markersize dynamic based on value given (i.e. magnitude)
 function markerSize(magnitude) {
@@ -36,7 +36,7 @@ function createFeatures(eqData) {
 
     // Create a GeoJSON layer containing the features array on the earthquakeData object
     // Run the onEachFeature function once for each piece of data in the array
-    var earthquakes = L.geoJSON(eqData, {
+    const earthquakes = L.geoJSON(eqData, {
         // onEachFeature: onEachFeature
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, { radius: markerSize(feature.properties.mag) });
@@ -59,14 +59,14 @@ function createFeatures(eqData) {
 function createMap(earthquakes) {
 
     // Define streetmap and darkmap layers
-    var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+    const streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
             attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
             maxZoom: 18,
             id: "mapbox.streets",
             accessToken: API_KEY
     });
 
-    var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+    const darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
             attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
             maxZoom: 18,
             id: "mapbox.dark",
@@ -74,18 +74,18 @@ function createMap(earthquakes) {
     });
 
     // Define a baseMaps object to hold our base layers
-    var baseMaps = {
+    const baseMaps = {
             "Street Map": streetmap,
             "Dark Map": darkmap
     };
 
     // Create overlay object to hold our overlay layer
-    var overlayMaps = {
+    const overlayMaps = {
             Earthquakes: earthquakes
     };
 
     // Create our map, giving it the streetmap and earthquakes layers to display on load
-    var myMap = L.map("map-id", {
+    const myMap = L.map("map-id", {
             center: [37.09, -95.71],
             zoom: 3,
             layers: [streetmap, earthquakes]
