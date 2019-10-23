@@ -1,16 +1,8 @@
-const API_KEY = "pk.eyJ1IjoibWFyYXphcCIsImEiOiJjazA5dG5qcm4wYmdxM25td3Vjb3hqZHV3In0.H4yMhzk2CLWelwV4OVx1jg";
-
 
 // function to make markersize dynamic based on value given (i.e. magnitude)
 function markerSize(magnitude) {
     return magnitude * 2;
 };
-
-(async function(){
-    const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
-    const response = await d3.json(url)
-    createFeatures(response.features)
-})()
 
 // function to make markersize dynamic based on value given (i.e. magnitude)
 function Color(magnitude) {
@@ -131,3 +123,8 @@ function createMap(earthquakes) {
 
 // Perform an API call to the earthquakes API to get information. Call createMarkers when complete
 
+(async function(){
+    const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+    const response = await d3.json(url)
+    createFeatures(response.features)
+})()
