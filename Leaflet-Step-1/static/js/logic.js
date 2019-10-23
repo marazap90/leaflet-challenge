@@ -47,7 +47,6 @@ function createFeatures(eqData) {
                 fillOpacity: 0.7,
                 weight: 0.1,
                 color: 'black'
-
             }
         },
     });
@@ -91,7 +90,6 @@ function createMap(earthquakes) {
             layers: [streetmap, earthquakes]
     });
 
-
     // Create a layer control
     L.control.layers(baseMaps, overlayMaps, {
             collapsed: false
@@ -123,7 +121,6 @@ function createMap(earthquakes) {
     legend.addTo(myMap);
 
 }
-
 
 // Perform an API call to the earthquakes API to get information. Call createMarkers when complete
 
