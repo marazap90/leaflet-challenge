@@ -1,1 +1,1 @@
-const API_KEY = "mapbox.com API key";
+var API_KEY = "pk.eyJ1IjoibWFyYXphcCIsImEiOiJjazIzeHhnbmIwMTR2M2RwMHRpaXZiMnZxIn0.rnOssVIAgBvqdI729LakeA";

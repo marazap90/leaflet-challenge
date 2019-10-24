@@ -35,7 +35,7 @@ function createFeatures(eqData) {
 
     // Create a GeoJSON layer containing the features array on the earthquakeData object
     // Run the onEachFeature function once for each piece of data in the array
-    const earthquakes = L.geoJSON(eqData, {
+    var earthquakes = L.geoJSON(eqData, {
         // onEachFeature: onEachFeature
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, { radius: markerSize(feature.properties.mag) });
@@ -46,6 +46,7 @@ function createFeatures(eqData) {
                 fillOpacity: 0.7,
                 weight: 0.1,
                 color: 'black'
+
             }
         },
     });
@@ -89,6 +90,7 @@ function createMap(earthquakes) {
             layers: [streetmap, earthquakes]
     });
 
+
     // Create a layer control
     L.control.layers(baseMaps, overlayMaps, {
             collapsed: false
@@ -120,6 +122,7 @@ function createMap(earthquakes) {
     legend.addTo(myMap);
 
 }
+
 
 // Perform an API call to the earthquakes API to get information. Call createMarkers when complete
 
