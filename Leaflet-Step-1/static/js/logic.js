@@ -1,4 +1,3 @@
-
 // function to make markersize dynamic based on value given (i.e. magnitude)
 function markerSize(magnitude) {
     return magnitude * 2;
@@ -35,7 +34,7 @@ function createFeatures(eqData) {
 
     // Create a GeoJSON layer containing the features array on the earthquakeData object
     // Run the onEachFeature function once for each piece of data in the array
-    var earthquakes = L.geoJSON(eqData, {
+    const earthquakes = L.geoJSON(eqData, {
         // onEachFeature: onEachFeature
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, { radius: markerSize(feature.properties.mag) });
